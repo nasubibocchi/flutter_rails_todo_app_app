@@ -13,7 +13,7 @@ class TodoDataSource {
 
   Future<TodoList?> fetchTodoList() async {
     try {
-      final todoListResult = await _dio.get<Map<String, dynamic>>('/todos');
+      final todoListResult = await _dio.get<Map<String, dynamic>>('/todos/all');
 
       if (todoListResult.data != null) {
         final todoList = TodoList.fromJson(todoListResult.data!);
