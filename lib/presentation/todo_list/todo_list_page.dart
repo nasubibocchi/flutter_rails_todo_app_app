@@ -39,7 +39,7 @@ class TodoListPage extends HookConsumerWidget {
             });
       },
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: () => const Center(child: CircularProgressIndicator()),
+      error: () => const SizedBox(),
     ));
   }
 }
