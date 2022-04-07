@@ -28,7 +28,7 @@ class TodoListViewModel extends StateNotifier<TodoListState> {
   Future<void> _fetchTodos() async {
     final todoResult = await _todoUseCase.fetchTodoList();
     todoResult.whenWithResult((list) {
-      state = TodoListState(todoList: list.value.todoList);
+      state = TodoListState(todoList: list.value.todos);
     }, (p0) {
       state = TodoListState.error();
     });
