@@ -1,6 +1,6 @@
-import 'package:flutter_rails_todo_app/application/repository/todo_repository.dart';
 import 'package:flutter_rails_todo_app/data/remote/todo_data_source.dart';
-import 'package:flutter_rails_todo_app/entity/todo_list.dart';
+import 'package:flutter_rails_todo_app/domain/entity/todo_list.dart';
+import 'package:flutter_rails_todo_app/domain/repository/todo_repository.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
   TodoRepositoryImpl({required TodoDataSource dataSource})

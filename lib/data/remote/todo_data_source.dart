@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_rails_todo_app/data/app_dio.dart';
-import 'package:flutter_rails_todo_app/entity/todo_list.dart';
+import 'package:flutter_rails_todo_app/domain/entity/todo_list.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final todoDataSourceProvider =
