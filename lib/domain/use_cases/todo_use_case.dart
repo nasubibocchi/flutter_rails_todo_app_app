@@ -3,7 +3,7 @@ import 'package:flutter_rails_todo_app/data/result.dart';
 import 'package:flutter_rails_todo_app/domain/repository/todo_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final todoUseCaseProvider = Provider(
+final todoUseCaseProvider = Provider<TodoUseCase>(
     (ref) => TodoUseCase(repository: ref.read(todoRepositoryProvider)));
 
 class TodoUseCase {

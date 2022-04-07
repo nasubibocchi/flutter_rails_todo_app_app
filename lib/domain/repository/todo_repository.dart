@@ -4,7 +4,7 @@ import 'package:flutter_rails_todo_app/data/model/todo_list.dart';
 import 'package:flutter_rails_todo_app/data/result.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final todoRepositoryProvider = Provider(
+final todoRepositoryProvider = Provider<TodoRepositoryImpl>(
     (ref) => TodoRepositoryImpl(dataSource: ref.read(todoDataSourceProvider)));
 
 abstract class TodoRepository {
