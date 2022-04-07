@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of '../../data/model/todo_list.dart';
+part of 'todo_list.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -22,9 +22,9 @@ TodoList _$TodoListFromJson(Map<String, dynamic> json) {
 class _$TodoListTearOff {
   const _$TodoListTearOff();
 
-  _TodoList call({required List<Todo> todoList}) {
+  _TodoList call({required List<Todo> todos}) {
     return _TodoList(
-      todoList: todoList,
+      todos: todos,
     );
   }
 
@@ -38,7 +38,7 @@ const $TodoList = _$TodoListTearOff();
 
 /// @nodoc
 mixin _$TodoList {
-  List<Todo> get todoList => throw _privateConstructorUsedError;
+  List<Todo> get todos => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +50,7 @@ mixin _$TodoList {
 abstract class $TodoListCopyWith<$Res> {
   factory $TodoListCopyWith(TodoList value, $Res Function(TodoList) then) =
       _$TodoListCopyWithImpl<$Res>;
-  $Res call({List<Todo> todoList});
+  $Res call({List<Todo> todos});
 }
 
 /// @nodoc
@@ -63,12 +63,12 @@ class _$TodoListCopyWithImpl<$Res> implements $TodoListCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? todoList = freezed,
+    Object? todos = freezed,
   }) {
     return _then(_value.copyWith(
-      todoList: todoList == freezed
-          ? _value.todoList
-          : todoList // ignore: cast_nullable_to_non_nullable
+      todos: todos == freezed
+          ? _value.todos
+          : todos // ignore: cast_nullable_to_non_nullable
               as List<Todo>,
     ));
   }
@@ -79,7 +79,7 @@ abstract class _$TodoListCopyWith<$Res> implements $TodoListCopyWith<$Res> {
   factory _$TodoListCopyWith(_TodoList value, $Res Function(_TodoList) then) =
       __$TodoListCopyWithImpl<$Res>;
   @override
-  $Res call({List<Todo> todoList});
+  $Res call({List<Todo> todos});
 }
 
 /// @nodoc
@@ -93,12 +93,12 @@ class __$TodoListCopyWithImpl<$Res> extends _$TodoListCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? todoList = freezed,
+    Object? todos = freezed,
   }) {
     return _then(_TodoList(
-      todoList: todoList == freezed
-          ? _value.todoList
-          : todoList // ignore: cast_nullable_to_non_nullable
+      todos: todos == freezed
+          ? _value.todos
+          : todos // ignore: cast_nullable_to_non_nullable
               as List<Todo>,
     ));
   }
@@ -107,17 +107,17 @@ class __$TodoListCopyWithImpl<$Res> extends _$TodoListCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_TodoList extends _TodoList {
-  _$_TodoList({required this.todoList}) : super._();
+  _$_TodoList({required this.todos}) : super._();
 
   factory _$_TodoList.fromJson(Map<String, dynamic> json) =>
       _$$_TodoListFromJson(json);
 
   @override
-  final List<Todo> todoList;
+  final List<Todo> todos;
 
   @override
   String toString() {
-    return 'TodoList(todoList: $todoList)';
+    return 'TodoList(todos: $todos)';
   }
 
   @override
@@ -125,12 +125,12 @@ class _$_TodoList extends _TodoList {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TodoList &&
-            const DeepCollectionEquality().equals(other.todoList, todoList));
+            const DeepCollectionEquality().equals(other.todos, todos));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(todoList));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(todos));
 
   @JsonKey(ignore: true)
   @override
@@ -144,13 +144,13 @@ class _$_TodoList extends _TodoList {
 }
 
 abstract class _TodoList extends TodoList {
-  factory _TodoList({required List<Todo> todoList}) = _$_TodoList;
+  factory _TodoList({required List<Todo> todos}) = _$_TodoList;
   _TodoList._() : super._();
 
   factory _TodoList.fromJson(Map<String, dynamic> json) = _$_TodoList.fromJson;
 
   @override
-  List<Todo> get todoList;
+  List<Todo> get todos;
   @override
   @JsonKey(ignore: true)
   _$TodoListCopyWith<_TodoList> get copyWith =>

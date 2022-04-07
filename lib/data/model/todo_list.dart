@@ -7,7 +7,8 @@ part 'todo_list.g.dart';
 
 @freezed
 abstract class TodoList with _$TodoList {
-  factory TodoList({required List<Todo> todoList}) = _TodoList;
+  // メモ：ここの変数名はapi側の名前と合わせる
+  factory TodoList({required List<Todo> todos}) = _TodoList;
 
   TodoList._();
 
