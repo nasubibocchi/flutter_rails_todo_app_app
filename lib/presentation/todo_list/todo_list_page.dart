@@ -10,7 +10,7 @@ class TodoListPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.read(todoListViewModelProvider);
+    final state = ref.watch(todoListViewModelProvider);
 
     return Scaffold(
         floatingActionButton: FloatingActionButton(
