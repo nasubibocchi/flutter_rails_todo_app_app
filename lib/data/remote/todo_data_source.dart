@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_rails_todo_app/data/app_dio.dart';
-import 'package:flutter_rails_todo_app/domain/entity/todo_list.dart';
+import 'package:flutter_rails_todo_app/data/model/todo_list.dart';
+import 'package:flutter_rails_todo_app/data/result.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final todoDataSourceProvider =
@@ -11,17 +12,14 @@ class TodoDataSource {
 
   final Dio _dio;
 
-  Future<TodoList?> fetchTodoList() async {
+  Future<Result<TodoList>> fetchTodoList() async {
     try {
       final todoListResult = await _dio.get<Map<String, dynamic>>('/todos/all');
 
-      if (todoListResult.data != null) {
-        final todoList = TodoList.fromJson(todoListResult.data!);
-        return todoList;
-      }
-      return null;
-    } catch (e) {
-      return null;
+      final todoList = TodoList.fromJson(todoListResult.data!);
+      return Success(todoList);
+    } on Exception catch (e) {
+      return Error(Exception(e));
     }
   }
 
