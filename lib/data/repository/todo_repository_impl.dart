@@ -1,5 +1,6 @@
 import 'package:flutter_rails_todo_app/data/remote/todo_data_source.dart';
-import 'package:flutter_rails_todo_app/domain/entity/todo_list.dart';
+import 'package:flutter_rails_todo_app/data/model/todo_list.dart';
+import 'package:flutter_rails_todo_app/data/result.dart';
 import 'package:flutter_rails_todo_app/domain/repository/todo_repository.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
@@ -9,9 +10,9 @@ class TodoRepositoryImpl implements TodoRepository {
   final TodoDataSource _dataSource;
 
   @override
-  Future<TodoList?> fetchTodoList() async {
-    final todoList = await _dataSource.fetchTodoList();
-    return todoList;
+  Future<Result<TodoList>> fetchTodoList() async {
+    final todoListResult = await _dataSource.fetchTodoList();
+    return todoListResult;
   }
 
   @override
