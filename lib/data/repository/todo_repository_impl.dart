@@ -1,3 +1,4 @@
+import 'package:flutter_rails_todo_app/data/model/todo.dart';
 import 'package:flutter_rails_todo_app/data/remote/todo_data_source.dart';
 import 'package:flutter_rails_todo_app/data/model/todo_list.dart';
 import 'package:flutter_rails_todo_app/data/result.dart';
@@ -22,7 +23,7 @@ class TodoRepositoryImpl implements TodoRepository {
   }
 
   @override
-  Future<Result<void>> postTodo({required String body}) async {
+  Future<Result<Todo>> postTodo({required String body}) async {
     return await _dataSource.postTodo(body: body);
   }
 }

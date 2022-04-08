@@ -1,3 +1,4 @@
+import 'package:flutter_rails_todo_app/data/model/todo.dart';
 import 'package:flutter_rails_todo_app/data/remote/todo_data_source.dart';
 import 'package:flutter_rails_todo_app/data/repository/todo_repository_impl.dart';
 import 'package:flutter_rails_todo_app/data/model/todo_list.dart';
@@ -10,7 +11,7 @@ final todoRepositoryProvider = Provider<TodoRepositoryImpl>(
 abstract class TodoRepository {
   Future<Result<TodoList>> fetchTodoList();
 
-  Future<Result<void>> postTodo({required String body});
+  Future<Result<Todo>> postTodo({required String body});
 
   Future<void> changeTodoStatus({required int todoId, required bool isDone});
 }

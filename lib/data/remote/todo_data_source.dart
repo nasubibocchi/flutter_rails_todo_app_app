@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_rails_todo_app/data/app_dio.dart';
+import 'package:flutter_rails_todo_app/data/model/todo.dart';
 import 'package:flutter_rails_todo_app/data/model/todo_list.dart';
 import 'package:flutter_rails_todo_app/data/result.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -22,13 +23,12 @@ class TodoDataSource {
     }
   }
 
-  Future<Result<void>> postTodo({required String body}) async {
+  Future<Result<Todo>> postTodo({required String body}) async {
     try {
-      return await _dio
-          .post<Map<String, dynamic>>('/todos', data: <String, dynamic>{
+      return await _dio.post<Map<String, dynamic>>('/todos', data: {
         'body': body,
         'isDone': false,
-      }).then((_) => Success(null));
+      }).then((response) => Success(Todo.fromJson(response.data!)));
     } catch (e) {
       return Error(Exception(e));
     }

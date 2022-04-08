@@ -1,3 +1,4 @@
+import 'package:flutter_rails_todo_app/data/model/todo.dart';
 import 'package:flutter_rails_todo_app/data/model/todo_list.dart';
 import 'package:flutter_rails_todo_app/data/result.dart';
 import 'package:flutter_rails_todo_app/domain/repository/todo_repository.dart';
@@ -13,7 +14,7 @@ class TodoUseCase {
 
   Future<Result<TodoList>> fetchTodoList() => _repository.fetchTodoList();
 
-  Future<Result<void>> postTodo({required String body}) =>
+  Future<Result<Todo>> postTodo({required String body}) =>
       _repository.postTodo(body: body);
 
   Future<void> changeTodoStatus({required int todoId, required bool isDone}) =>

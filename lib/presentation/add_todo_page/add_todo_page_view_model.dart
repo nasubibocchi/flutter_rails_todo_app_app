@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_rails_todo_app/data/result.dart';
 import 'package:flutter_rails_todo_app/domain/use_cases/todo_use_case.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -35,13 +34,6 @@ class AddTodoPageViewModel extends StateNotifier<AddTodoState> {
 
   Future<bool> postTodo({required String body}) async {
     final postResult = await _todoUseCase.postTodo(body: body);
-
-    if (postResult == Success(null)) {
-      final currentState = state;
-      state = currentState.copyWith(
-          body: null, todoTextController: TextEditingController(text: null));
-    }
-
     return postResult.whenWithResult((success) => true, (e) => false);
   }
 }
