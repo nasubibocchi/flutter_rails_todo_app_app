@@ -15,7 +15,7 @@ class TodoListState with _$TodoListState {
 
   factory TodoListState.loading() = _TodoListStateLoading;
 
-  factory TodoListState.error() = _TodoListStateError;
+  factory TodoListState.error({required String? error}) = _TodoListStateError;
 }
 
 class TodoListViewModel extends StateNotifier<TodoListState> {
@@ -29,13 +29,9 @@ class TodoListViewModel extends StateNotifier<TodoListState> {
     final todoResult = await _todoUseCase.fetchTodoList();
     todoResult.whenWithResult((list) {
       state = TodoListState(todoList: list.value.todos);
-    }, (p0) {
-      state = TodoListState.error();
+    }, (e) {
+      state = TodoListState.error(error: '${e.exception}');
     });
-  }
-
-  Future<void> postTodo({required String body}) async {
-    await _todoUseCase.postTodo(body: body);
   }
 
   Future<void> onTapCheckBox() async {}

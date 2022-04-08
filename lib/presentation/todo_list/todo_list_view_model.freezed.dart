@@ -28,8 +28,10 @@ class _$TodoListStateTearOff {
     return _TodoListStateLoading();
   }
 
-  _TodoListStateError error() {
-    return _TodoListStateError();
+  _TodoListStateError error({required String? error}) {
+    return _TodoListStateError(
+      error: error,
+    );
   }
 }
 
@@ -42,21 +44,21 @@ mixin _$TodoListState {
   TResult when<TResult extends Object?>(
     TResult Function(List<Todo> todoList) $default, {
     required TResult Function() loading,
-    required TResult Function() error,
+    required TResult Function(String? error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(List<Todo> todoList)? $default, {
     TResult Function()? loading,
-    TResult Function()? error,
+    TResult Function(String? error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(List<Todo> todoList)? $default, {
     TResult Function()? loading,
-    TResult Function()? error,
+    TResult Function(String? error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -168,7 +170,7 @@ class _$_TodoListState implements _TodoListState {
   TResult when<TResult extends Object?>(
     TResult Function(List<Todo> todoList) $default, {
     required TResult Function() loading,
-    required TResult Function() error,
+    required TResult Function(String? error) error,
   }) {
     return $default(todoList);
   }
@@ -178,7 +180,7 @@ class _$_TodoListState implements _TodoListState {
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(List<Todo> todoList)? $default, {
     TResult Function()? loading,
-    TResult Function()? error,
+    TResult Function(String? error)? error,
   }) {
     return $default?.call(todoList);
   }
@@ -188,7 +190,7 @@ class _$_TodoListState implements _TodoListState {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(List<Todo> todoList)? $default, {
     TResult Function()? loading,
-    TResult Function()? error,
+    TResult Function(String? error)? error,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -284,7 +286,7 @@ class _$_TodoListStateLoading implements _TodoListStateLoading {
   TResult when<TResult extends Object?>(
     TResult Function(List<Todo> todoList) $default, {
     required TResult Function() loading,
-    required TResult Function() error,
+    required TResult Function(String? error) error,
   }) {
     return loading();
   }
@@ -294,7 +296,7 @@ class _$_TodoListStateLoading implements _TodoListStateLoading {
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(List<Todo> todoList)? $default, {
     TResult Function()? loading,
-    TResult Function()? error,
+    TResult Function(String? error)? error,
   }) {
     return loading?.call();
   }
@@ -304,7 +306,7 @@ class _$_TodoListStateLoading implements _TodoListStateLoading {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(List<Todo> todoList)? $default, {
     TResult Function()? loading,
-    TResult Function()? error,
+    TResult Function(String? error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -357,6 +359,7 @@ abstract class _$TodoListStateErrorCopyWith<$Res> {
   factory _$TodoListStateErrorCopyWith(
           _TodoListStateError value, $Res Function(_TodoListStateError) then) =
       __$TodoListStateErrorCopyWithImpl<$Res>;
+  $Res call({String? error});
 }
 
 /// @nodoc
@@ -369,35 +372,58 @@ class __$TodoListStateErrorCopyWithImpl<$Res>
 
   @override
   _TodoListStateError get _value => super._value as _TodoListStateError;
+
+  @override
+  $Res call({
+    Object? error = freezed,
+  }) {
+    return _then(_TodoListStateError(
+      error: error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_TodoListStateError implements _TodoListStateError {
-  _$_TodoListStateError();
+  _$_TodoListStateError({required this.error});
+
+  @override
+  final String? error;
 
   @override
   String toString() {
-    return 'TodoListState.error()';
+    return 'TodoListState.error(error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _TodoListStateError);
+        (other.runtimeType == runtimeType &&
+            other is _TodoListStateError &&
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+
+  @JsonKey(ignore: true)
+  @override
+  _$TodoListStateErrorCopyWith<_TodoListStateError> get copyWith =>
+      __$TodoListStateErrorCopyWithImpl<_TodoListStateError>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(List<Todo> todoList) $default, {
     required TResult Function() loading,
-    required TResult Function() error,
+    required TResult Function(String? error) error,
   }) {
-    return error();
+    return error(this.error);
   }
 
   @override
@@ -405,9 +431,9 @@ class _$_TodoListStateError implements _TodoListStateError {
   TResult? whenOrNull<TResult extends Object?>(
     TResult Function(List<Todo> todoList)? $default, {
     TResult Function()? loading,
-    TResult Function()? error,
+    TResult Function(String? error)? error,
   }) {
-    return error?.call();
+    return error?.call(this.error);
   }
 
   @override
@@ -415,11 +441,11 @@ class _$_TodoListStateError implements _TodoListStateError {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(List<Todo> todoList)? $default, {
     TResult Function()? loading,
-    TResult Function()? error,
+    TResult Function(String? error)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error();
+      return error(this.error);
     }
     return orElse();
   }
@@ -460,5 +486,10 @@ class _$_TodoListStateError implements _TodoListStateError {
 }
 
 abstract class _TodoListStateError implements TodoListState {
-  factory _TodoListStateError() = _$_TodoListStateError;
+  factory _TodoListStateError({required String? error}) = _$_TodoListStateError;
+
+  String? get error;
+  @JsonKey(ignore: true)
+  _$TodoListStateErrorCopyWith<_TodoListStateError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
