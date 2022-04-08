@@ -10,7 +10,7 @@ final todoRepositoryProvider = Provider<TodoRepositoryImpl>(
 abstract class TodoRepository {
   Future<Result<TodoList>> fetchTodoList();
 
-  Future<void> postTodo({required String body});
+  Future<Result<void>> postTodo({required String body});
 
   Future<void> changeTodoStatus({required int todoId, required bool isDone});
 }

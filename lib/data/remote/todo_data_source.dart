@@ -22,14 +22,15 @@ class TodoDataSource {
     }
   }
 
-  Future<void> postTodo({required String body}) async {
+  Future<Result<void>> postTodo({required String body}) async {
     try {
-      await _dio.post<Map<String, dynamic>>('/todos', data: <String, dynamic>{
+      return await _dio
+          .post<Map<String, dynamic>>('/todos', data: <String, dynamic>{
         'body': body,
         'isDone': false,
-      });
+      }).then((_) => Success(null));
     } catch (e) {
-      return;
+      return Error(Exception(e));
     }
   }
 

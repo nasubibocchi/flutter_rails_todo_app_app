@@ -22,7 +22,7 @@ class TodoRepositoryImpl implements TodoRepository {
   }
 
   @override
-  Future<void> postTodo({required String body}) async {
-    await _dataSource.postTodo(body: body);
+  Future<Result<void>> postTodo({required String body}) async {
+    return await _dataSource.postTodo(body: body);
   }
 }

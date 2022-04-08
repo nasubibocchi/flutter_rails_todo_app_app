@@ -13,7 +13,7 @@ class TodoUseCase {
 
   Future<Result<TodoList>> fetchTodoList() => _repository.fetchTodoList();
 
-  Future<void> postTodo({required String body}) =>
+  Future<Result<void>> postTodo({required String body}) =>
       _repository.postTodo(body: body);
 
   Future<void> changeTodoStatus({required int todoId, required bool isDone}) =>
