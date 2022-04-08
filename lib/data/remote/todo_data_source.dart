@@ -37,7 +37,8 @@ class TodoDataSource {
   Future<void> changeTodoStatus(
       {required int todoId, required bool isDone}) async {
     try {
-      await _dio.post<Map<String, dynamic>>('/todos', data: <String, dynamic>{
+      await _dio
+          .put<Map<String, dynamic>>('/todos/$todoId', data: <String, dynamic>{
         'isDone': isDone,
       });
     } catch (e) {
