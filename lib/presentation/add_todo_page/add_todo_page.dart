@@ -61,7 +61,7 @@ class AddTodoPage extends ConsumerWidget {
                 }
               }
             },
-            child: const Text('追加する'),
+            child: const Text('Add'),
           ),
         ],
       ),
