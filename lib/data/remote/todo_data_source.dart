@@ -27,7 +27,7 @@ class TodoDataSource {
     try {
       return await _dio.post<Map<String, dynamic>>('/todos', data: {
         'body': body,
-        'isDone': false,
+        'is_done': false,
       }).then((response) => Success(Todo.fromJson(response.data!)));
     } catch (e) {
       return Error(Exception(e));
@@ -39,7 +39,7 @@ class TodoDataSource {
     try {
       await _dio
           .put<Map<String, dynamic>>('/todos/$todoId', data: <String, dynamic>{
-        'isDone': isDone,
+        'is_done': isDone,
       });
     } catch (e) {
       return;
